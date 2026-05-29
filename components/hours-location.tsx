@@ -54,7 +54,8 @@ export function HoursLocation() {
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                referrerPolicy="strict-origin-when-cross-origin"
+                sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
                 title="Ubicación de Yeya Nails & Glow"
               />
             </div>

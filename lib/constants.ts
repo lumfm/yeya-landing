@@ -3,7 +3,8 @@ export const SITE = {
   tagline: "Belleza que resalta tu brillo",
   description:
     "Estudio de uñas en Colombia. Diseños personalizados, acrílicas, semipermanentes y más. Reserva por WhatsApp.",
-  url: "https://yeyanailsandglow.com",
+  // TODO: swap to "https://yeyanailsandglow.com" once custom domain is registered + pointed at Vercel
+  url: "https://yeya-landing.vercel.app",
 } as const;
 
 export const WHATSAPP = {
@@ -12,8 +13,9 @@ export const WHATSAPP = {
     "Muchas gracias por contactarte con Yeya Nails & Glow! Cuentame, ¿qué te quieres hacer?",
 } as const;
 
-export function whatsappUrl(message: string = WHATSAPP.defaultMessage) {
-  return `https://wa.me/${WHATSAPP.number}?text=${encodeURIComponent(message)}`;
+export function whatsappUrl(message?: string) {
+  const text = message?.trim() || WHATSAPP.defaultMessage;
+  return `https://wa.me/${WHATSAPP.number}?text=${encodeURIComponent(text)}`;
 }
 
 export const INSTAGRAM = {

@@ -26,31 +26,12 @@ export function InstagramFeed() {
           href={INSTAGRAM.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 inline-flex items-center gap-3 rounded-full border border-rose-gold/40 px-6 py-3 text-sm tracking-wide text-warm-white transition-colors hover:border-rose-gold hover:bg-rose-gold/10"
+          className="group mt-10 inline-flex items-center gap-3 rounded-full bg-rose-gold px-7 py-3.5 text-sm font-medium tracking-wide text-charcoal transition-all hover:bg-rose-gold-light hover:shadow-[0_0_30px_rgba(185,141,111,0.5)] sm:text-base"
         >
           <InstagramIcon className="h-5 w-5" />
-          Ver en Instagram
+          <span>Ver en Instagram</span>
+          <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
         </a>
-
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <a
-              key={i}
-              href={INSTAGRAM.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative aspect-square overflow-hidden rounded-xl bg-gradient-to-br from-rose-gold/30 to-charcoal ring-1 ring-rose-gold/20 transition-all hover:ring-rose-gold/60"
-              aria-label="Ver publicación en Instagram"
-            >
-              <div className="absolute inset-0 flex items-center justify-center text-rose-gold/70 transition-opacity group-hover:opacity-100">
-                <InstagramIcon className="h-8 w-8" />
-              </div>
-            </a>
-          ))}
-        </div>
-        <p className="mt-6 text-xs text-warm-cream/40">
-          Las publicaciones reales se cargarán cuando se conecte la API de Instagram.
-        </p>
       </div>
     </section>
   );

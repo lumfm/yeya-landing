@@ -8,7 +8,7 @@ import { GALLERY } from "@/lib/constants";
 
 export function Gallery() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "center", containScroll: false },
+    { loop: true, align: "center", containScroll: "trimSnaps" },
     [Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true })],
   );
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -32,7 +32,12 @@ export function Gallery() {
       if (e.key === "Escape") setLightbox(null);
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
   }, [lightbox]);
 
   return (
@@ -95,10 +100,14 @@ export function Gallery() {
         <div
           role="dialog"
           aria-modal="true"
+          aria-label={GALLERY[lightbox].alt}
           onClick={() => setLightbox(null)}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
         >
-          <div className="relative h-[85vh] w-full max-w-3xl">
+          <div
+            className="relative h-[85vh] w-full max-w-3xl"
+            onClick={(e) => e.stopPropagation()}
+          >
             <Image
               src={GALLERY[lightbox].src}
               alt={GALLERY[lightbox].alt}

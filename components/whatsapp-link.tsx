@@ -9,10 +9,10 @@ type Props = Omit<ComponentProps<"a">, "href"> & {
 export function WhatsappLink({ message, children, ...rest }: Props) {
   return (
     <a
+      {...rest}
       href={whatsappUrl(message)}
       target="_blank"
       rel="noopener noreferrer"
-      {...rest}
     >
       {children}
     </a>

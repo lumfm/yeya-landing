@@ -52,3 +52,13 @@ body {
 .pulse-wa {
   animation: pulse-wa 2.2s ease-in-out infinite;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer,
+  .pulse-wa {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
