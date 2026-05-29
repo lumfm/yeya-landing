@@ -9,7 +9,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: blob: https:",
-      "frame-src https://www.google.com",
+      "frame-src https://www.google.com https://cdn.lightwidget.com https://lightwidget.com",
       "connect-src 'self'",
       "frame-ancestors 'self'",
       "base-uri 'self'",

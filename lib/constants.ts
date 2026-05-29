@@ -19,8 +19,12 @@ export function whatsappUrl(message?: string) {
 }
 
 export const INSTAGRAM = {
-  handle: "yeyanails_glow", // TODO: confirm handle
+  handle: "yeyanails_glow",
   url: "https://www.instagram.com/yeyanails_glow",
+  // LightWidget embed URL. Get from https://lightwidget.com after connecting IG.
+  // Format: "https://cdn.lightwidget.com/widgets/<widget-id>.html"
+  // Leave empty string to hide widget and show only the CTA button.
+  embedUrl: "",
 } as const;
 
 export const HOURS: { day: string; hours: string }[] = [

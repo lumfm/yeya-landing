@@ -22,6 +22,22 @@ export function InstagramFeed() {
           Inspírate con los últimos diseños y promociones.
         </p>
 
+        {INSTAGRAM.embedUrl ? (
+          <div className="mt-10 overflow-hidden rounded-2xl ring-1 ring-rose-gold/20">
+            <iframe
+              src={INSTAGRAM.embedUrl}
+              scrolling="no"
+              allowTransparency
+              className="w-full border-0"
+              style={{ minHeight: 480 }}
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+              title={`Publicaciones recientes de @${INSTAGRAM.handle}`}
+            />
+          </div>
+        ) : null}
+
         <a
           href={INSTAGRAM.url}
           target="_blank"
